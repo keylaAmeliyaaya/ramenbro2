@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Menu - Ramen Bro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Epilogue', sans-serif;
+            background-color: #fbf8f4;
+        }
+        /* Gradient khusus untuk latar belakang atas */
+        .hero-gradient {
+            background: linear-gradient(to bottom, #111111 0%, #3a3a3a 40%, #fbf8f4 100%);
+        }
+    </style>
+</head>
+<body class="flex justify-center min-h-screen bg-gray-100">
+
+    <div class="w-full max-w-[414px] bg-[#fbf8f4] min-h-screen relative shadow-2xl flex flex-col">
+        
+        <div class="relative h-[340px] hero-gradient w-full flex justify-center items-end pb-4 rounded-b-[2rem]">
+            <a href="homepage.html" class="absolute top-6 left-5 text-[#c21820] text-xl z-20">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+
+            <img id="hero-image" src="https://png.pngtree.com/png-clipart/20231016/original/pngtree-japanese-ramen-with-eggs-png-image_13327663.png" 
+                 alt="Tonkotsu Ramen" 
+                 class="w-[320px] h-[320px] object-cover absolute top-8 drop-shadow-2xl z-10">
+        </div>
+
+        <div class="px-6 pt-4 pb-32 flex-1">
+            
+            <h1 id="product-title" class="text-[32px] font-extrabold text-[#1a1a1a] leading-[1.1] tracking-tight mb-4">
+                Signature <br> Tonkotsu <br> Ramen
+            </h1>
+            
+            <div class="flex justify-between items-start gap-4 mb-8">
+                <p id="product-desc" class="text-[#6b6b6b] text-[13px] leading-relaxed font-medium flex-1">
+                    12-hour simmered pork bone broth, handmade noodles, charcoal-grilled chashu.
+                </p>
+                <div class="text-right flex-shrink-0">
+                    <span class="block text-[#a5151b] font-extrabold text-[22px] leading-none">Rp</span>
+                    <span id="base-price" class="block text-[#a5151b] font-extrabold text-[22px] leading-none mt-1">88.000</span>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div class="flex items-center gap-3 mb-1">
+                    <h2 class="font-extrabold text-[15px] text-[#1a1a1a] tracking-wide">PILIH LEVEL PEDAS</h2>
+                    <span class="bg-[#efe8d8] text-[#7a6042] text-[9px] font-bold px-2.5 py-1 rounded-full tracking-wider">WAJIB DIPILIH</span>
+                </div>
+                <p class="text-[#8c8c8c] text-[12px] mb-5 leading-snug">
+                    Anda dapat memesan beberapa porsi dengan tingkat <br> kepedasan berbeda.
+                </p>
+
+                <div class="flex flex-col gap-3" id="spice-options">
+                    
+                    <div class="spice-card cursor-pointer bg-[#f6f4f0] border border-transparent rounded-[14px] p-4 flex justify-between items-center transition-all duration-200">
+                        <div class="pr-4">
+                            <h3 class="font-bold text-[#1a1a1a] text-[15px] mb-0.5">Level 0: Pure</h3>
+                            <p class="text-[#737373] text-[12px] leading-snug">The original creamy essence. No spice added.</p>
+                        </div>
+                        <div class="radio-icon w-5 h-5 rounded-full border border-[#d1c8b8]"></div>
+                        <div class="qty-control hidden bg-[#fae8e9] flex items-center justify-between rounded-full px-1.5 py-1 min-w-[70px]">
+                            <button class="qty-btn minus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">&minus;</button>
+                            <span class="qty-val text-[#940a16] font-bold text-[13px]">0</span>
+                            <button class="qty-btn plus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">+</button>
+                        </div>
+                    </div>
+
+                    <div class="spice-card cursor-pointer bg-[#f6f4f0] border border-transparent rounded-[14px] p-4 flex justify-between items-center transition-all duration-200">
+                        <div class="pr-4">
+                            <h3 class="font-bold text-[#1a1a1a] text-[15px] mb-0.5">Level 1: Mellow</h3>
+                            <p class="text-[#737373] text-[12px] leading-snug">A gentle whisper of warmth for delicate palates.</p>
+                        </div>
+                        <div class="radio-icon w-5 h-5 rounded-full border border-[#d1c8b8]"></div>
+                        <div class="qty-control hidden bg-[#fae8e9] flex items-center justify-between rounded-full px-1.5 py-1 min-w-[70px]">
+                            <button class="qty-btn minus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">&minus;</button>
+                            <span class="qty-val text-[#940a16] font-bold text-[13px]">0</span>
+                            <button class="qty-btn plus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">+</button>
+                        </div>
+                    </div>
+
+                    <div class="spice-card cursor-pointer bg-[#f6f4f0] border border-transparent rounded-[14px] p-4 flex justify-between items-center transition-all duration-200">
+                        <div class="pr-4">
+                            <h3 class="font-bold text-[#1a1a1a] text-[15px] mb-0.5">Level 2: Zesty</h3>
+                            <p class="text-[#737373] text-[12px] leading-snug">The artisan balance. A rhythmic, tingling spice.</p>
+                        </div>
+                        <div class="radio-icon w-5 h-5 rounded-full border border-[#d1c8b8]"></div>
+                        <div class="qty-control hidden bg-[#fae8e9] flex items-center justify-between rounded-full px-1.5 py-1 min-w-[70px]">
+                            <button class="qty-btn minus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">&minus;</button>
+                            <span class="qty-val text-[#940a16] font-bold text-[13px]">0</span>
+                            <button class="qty-btn plus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">+</button>
+                        </div>
+                    </div>
+
+                    <div class="spice-card cursor-pointer bg-[#f6f4f0] border border-transparent rounded-[14px] p-4 flex justify-between items-center transition-all duration-200">
+                        <div class="pr-4">
+                            <h3 class="font-bold text-[#1a1a1a] text-[15px] mb-0.5">Level 3: Fiery</h3>
+                            <p class="text-[#737373] text-[12px] leading-snug">For the brave. Intense heat that builds with every slurp.</p>
+                        </div>
+                        <div class="radio-icon w-5 h-5 rounded-full border border-[#d1c8b8]"></div>
+                        <div class="qty-control hidden bg-[#fae8e9] flex items-center justify-between rounded-full px-1.5 py-1 min-w-[70px]">
+                            <button class="qty-btn minus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">&minus;</button>
+                            <span class="qty-val text-[#940a16] font-bold text-[13px]">0</span>
+                            <button class="qty-btn plus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">+</button>
+                        </div>
+                    </div>
+
+                    <div class="spice-card cursor-pointer bg-[#f6f4f0] border border-transparent rounded-[14px] p-4 flex justify-between items-center transition-all duration-200">
+                        <div class="pr-4">
+                            <h3 class="font-bold text-[#1a1a1a] text-[15px] mb-0.5">Level 4: Dragon</h3>
+                            <p class="text-[#737373] text-[12px] leading-snug">The ultimate challenge. Fermented ghost pepper blend.</p>
+                        </div>
+                        <div class="radio-icon w-5 h-5 rounded-full border border-[#d1c8b8]"></div>
+                        <div class="qty-control hidden bg-[#fae8e9] flex items-center justify-between rounded-full px-1.5 py-1 min-w-[70px]">
+                            <button class="qty-btn minus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">&minus;</button>
+                            <span class="qty-val text-[#940a16] font-bold text-[13px]">0</span>
+                            <button class="qty-btn plus text-[#940a16] w-6 h-6 flex items-center justify-center font-bold text-lg leading-none">+</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h2 class="font-extrabold text-[15px] text-[#1a1a1a] tracking-wide mb-3">Catatan Tambahan</h2>
+                <textarea id="detail-note" placeholder="Contoh: Tanpa daun bawang, mie dimasak lebih lama..." 
+                          class="w-full bg-[#eeeae0] rounded-xl p-4 text-[13px] text-gray-800 placeholder-gray-400 h-24 focus:outline-none focus:ring-1 focus:ring-[#a5151b] resize-none"></textarea>
+            </div>
+        </div>
+
+        <div class="fixed bottom-0 w-full max-w-[414px] bg-gradient-to-t from-[#fbf8f4] via-[#fbf8f4] to-transparent pt-10 pb-6 px-6 z-30">
+            <button id="add-to-cart-btn" class="w-full bg-[#b51c22] text-white rounded-xl py-3.5 px-5 flex justify-between items-center shadow-[0_8px_20px_rgba(181,28,34,0.3)] transition-transform active:scale-[0.98]">
+                <span class="font-bold text-[15px]">Tambah ke Keranjang</span>
+                <div class="text-right">
+                    <span class="block text-[9px] font-bold tracking-widest opacity-80 uppercase leading-none mb-1">TOTAL</span>
+                    <span id="total-price" class="block font-bold text-[15px] leading-none">Rp 0</span>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+        // Data produk. Baru ada 1 menu sekarang, tapi strukturnya sudah siap
+        // kalau nanti mau nambah menu lain (tinggal tambah entry di sini + di homepage).
+        const PRODUCTS = {
+            'tonkotsu-ramen': {
+                id: 'tonkotsu-ramen',
+                name: 'Signature Tonkotsu Ramen',
+                price: 88000,
+                desc: '12-hour simmered pork bone broth, handmade noodles, charcoal-grilled chashu.',
+                image: 'https://images.unsplash.com/photo-1557872943-16a5ac26437e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+                hero: 'https://png.pngtree.com/png-clipart/20231016/original/pngtree-japanese-ramen-with-eggs-png-image_13327663.png'
+            },
+            'shoyu-ramen': {
+                id: 'shoyu-ramen',
+                name: 'Shoyu Ramen',
+                price: 78000,
+                desc: 'Kaldu ayam gurih dengan soy sauce tare klasik dan mie keriting tipis.',
+                image: 'https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+                hero: 'https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+            },
+            'miso-ramen': {
+                id: 'miso-ramen',
+                name: 'Miso Ramen',
+                price: 82000,
+                desc: 'Kaldu miso gurih dengan taburan jagung manis dan mentega.',
+                image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+                hero: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+            },
+            'original-mazemen': {
+                id: 'original-mazemen',
+                name: 'Original Mazemen',
+                price: 75000,
+                desc: 'Mie tanpa kuah dengan saus tare gurih dan minyak bawang aromatik.',
+                image: 'https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+                hero: 'https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+            },
+            'karaage-mazesoba': {
+                id: 'karaage-mazesoba',
+                name: 'Karaage Mazesoba',
+                price: 85000,
+                desc: 'Mie kering dengan topping ayam goreng crispy dan saus spesial.',
+                image: 'https://images.unsplash.com/photo-1584278860047-22db9ff82bed?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+                hero: 'https://images.unsplash.com/photo-1584278860047-22db9ff82bed?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+            },
+            'spicy-garlic-mazesoba': {
+                id: 'spicy-garlic-mazesoba',
+                name: 'Spicy Garlic Mazesoba',
+                price: 80000,
+                desc: 'Mie kering dengan chili oil bawang putih pedas dan minced pork.',
+                image: 'https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+                hero: 'https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Ambil produk mana yang mau dibuka dari query string (?id=...)
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id') || 'tonkotsu-ramen';
+            const product = PRODUCTS[productId] || PRODUCTS['tonkotsu-ramen'];
+
+            document.getElementById('base-price').innerText = product.price.toLocaleString('id-ID').replace(/,/g, '.');
+            document.getElementById('product-title').innerText = product.name;
+            document.getElementById('product-desc').innerText = product.desc || '';
+            const heroImg = document.getElementById('hero-image');
+            heroImg.src = product.hero || product.image;
+            heroImg.alt = product.name;
+            document.title = product.name + ' - Ramen Bro';
+
+            const cards = document.querySelectorAll('.spice-card');
+            const totalPriceElement = document.getElementById('total-price');
+
+            // Fungsi Hitung Total Harga
+            function calculateTotalPrice() {
+                let totalItems = 0;
+                document.querySelectorAll('.qty-val').forEach(span => {
+                    totalItems += parseInt(span.innerText);
+                });
+                const totalCost = totalItems * product.price;
+                totalPriceElement.innerText = formatRupiah(totalCost);
+            }
+
+            // Fungsi untuk mengaktifkan box (Highlight & Tampilkan + / -)
+            function activateCard(card) {
+                card.classList.remove('border-transparent', 'bg-[#f6f4f0]');
+                card.classList.add('border-[#940a16]', 'bg-white', 'shadow-[0_4px_15px_rgba(148,10,22,0.08)]');
+                card.querySelector('h3').classList.remove('text-[#1a1a1a]');
+                card.querySelector('h3').classList.add('text-[#940a16]');
+                card.querySelector('.radio-icon').classList.add('hidden');
+                card.querySelector('.qty-control').classList.remove('hidden');
+            }
+
+            // Fungsi untuk menonaktifkan box (Kembali jadi abu-abu & Tampilkan lingkaran kosong)
+            function deactivateCard(card) {
+                card.classList.remove('border-[#940a16]', 'bg-white', 'shadow-[0_4px_15px_rgba(148,10,22,0.08)]');
+                card.classList.add('border-transparent', 'bg-[#f6f4f0]');
+                card.querySelector('h3').classList.remove('text-[#940a16]');
+                card.querySelector('h3').classList.add('text-[#1a1a1a]');
+                card.querySelector('.radio-icon').classList.remove('hidden');
+                card.querySelector('.qty-control').classList.add('hidden');
+            }
+
+            // Event Listener untuk klik kotak / box
+            cards.forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.qty-btn')) return;
+
+                    activateCard(card);
+
+                    cards.forEach(otherCard => {
+                        if (otherCard !== card) {
+                            const qty = parseInt(otherCard.querySelector('.qty-val').innerText);
+                            if (qty === 0) {
+                                deactivateCard(otherCard);
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Logika untuk tombol Plus (+) dan Minus (-)
+            const qtyBtns = document.querySelectorAll('.qty-btn');
+            qtyBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+
+                    const isPlus = btn.classList.contains('plus');
+                    const spanVal = btn.parentElement.querySelector('.qty-val');
+                    let currentVal = parseInt(spanVal.innerText);
+
+                    if (isPlus) {
+                        currentVal++;
+                    } else if (currentVal > 0) {
+                        currentVal--;
+                    }
+
+                    spanVal.innerText = currentVal;
+                    calculateTotalPrice();
+                });
+            });
+
+            // Tombol "Tambah ke Keranjang": kumpulkan tiap level pedas yang qty-nya > 0,
+            // simpan ke cart (localStorage), lalu balik ke homepage.
+            document.getElementById('add-to-cart-btn').addEventListener('click', () => {
+                let hasSelection = false;
+
+                cards.forEach(card => {
+                    const qty = parseInt(card.querySelector('.qty-val').innerText);
+                    if (qty > 0) {
+                        hasSelection = true;
+                        const variant = card.querySelector('h3').innerText.trim();
+                        addToCart({
+                            productId: product.id,
+                            name: product.name,
+                            image: product.image,
+                            price: product.price,
+                            variant,
+                            qty
+                        });
+                    }
+                });
+
+                if (!hasSelection) {
+                    alert('Yuk pilih level pedas dan jumlah porsinya dulu ya!');
+                    return;
+                }
+
+                window.location.href = 'homepage.html';
+            });
+        });
+    </script>
+</body>
+</html>

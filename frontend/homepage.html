@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramen Bro - Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Epilogue', sans-serif;
+            background-color: #fbf8f4;
+        }
+        /* Menyembunyikan scrollbar pada menu kategori */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .category-btn {
+            background-color: #efece6;
+            color: #2c2c2c;
+        }
+        .category-btn.active-cat {
+            background-color: #940a16;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(148,10,22,0.25);
+        }
+        .menu-section-label.hidden-section {
+            display: none;
+        }
+    </style>
+</head>
+<body class="flex justify-center min-h-screen bg-gray-100">
+
+    <div class="w-full max-w-[414px] bg-[#fbf8f4] min-h-screen relative shadow-2xl flex flex-col">
+        
+        <div class="px-6 pt-10 pb-32 flex-1">
+            
+            <header class="flex items-center justify-between mb-12">
+                <div class="flex items-center gap-4">
+                    <button class="text-[#a5151b] text-[1.1rem]" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+                    <h1 class="font-extrabold text-[1.15rem] leading-tight text-gray-900 tracking-tight"><span>RAMEN</span><span class="text-[#a5151b]">BRO</span></h1>
+                </div>
+                <div class="flex items-center gap-2">
+                    <a href="orders.html" class="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center text-[#a5151b]" title="Pesanan Saya"><i class="fa-solid fa-receipt text-[13px]"></i></a>
+                    <a href="checkoutpage.html" class="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center text-[#a5151b]" title="Keranjang"><i class="fa-solid fa-bag-shopping text-[13px]"></i></a>
+                </div>
+            </header>
+
+            <div class="mb-8">
+                <h2 class="text-[2.6rem] leading-[1.05] font-medium tracking-tight text-[#1e1e1e] mb-4">
+                    Mastering the <br> Art of <span class="text-[#a5151b] italic font-normal">Savor.</span>
+                </h2>
+                <p class="text-[#6b6b6b] text-[15px] leading-relaxed pr-2 font-light">
+                    Ramen hangat, rasa berani, dibuat untuk dinikmati kapan saja.
+                </p>
+            </div>
+
+            <div class="w-full flex items-center gap-2.5 bg-[#f6f3ed] rounded-2xl px-4 py-3 mb-4 shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-[#f0ede6]">
+                <div class="w-8 h-8 rounded-full bg-[#fae8e9] flex items-center justify-center flex-shrink-0">
+                    <i class="fa-solid fa-location-dot text-[#a5151b] text-[12px]"></i>
+                </div>
+                <div class="text-left min-w-0">
+                    <span class="block text-[9px] font-bold tracking-widest uppercase text-[#a8a8a8] leading-none mb-0.5">Kamu sedang berada di</span>
+                    <span class="block text-[13px] font-bold text-[#1a1a1a] leading-tight truncate">Ramen Bro - Dago, Bandung</span>
+                </div>
+            </div>
+
+            <div class="relative mb-8">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm"></i>
+                </div>
+                <input type="text" placeholder="Cari menu favorit..." 
+                    class="w-full bg-[#efece6] text-gray-800 placeholder-gray-400 rounded-2xl py-3.5 pl-11 pr-4 focus:outline-none focus:ring-2 focus:ring-[#a5151b]/50 text-[15px]">
+            </div>
+
+            <div class="sticky top-0 z-30 -mx-6 px-6 pt-3 pb-4 mb-4 bg-[#fbf8f4]/95 backdrop-blur-sm">
+                <div class="flex gap-3 overflow-x-auto no-scrollbar" id="category-nav">
+                    <button data-filter="all" class="category-btn active-cat flex items-center justify-center gap-2 px-5 py-2.5 rounded-full whitespace-nowrap font-bold text-[11px] tracking-widest transition-colors">
+                        <i class="fa-solid fa-border-all text-[10px]"></i> SEMUA
+                    </button>
+                    <button data-filter="promo" class="category-btn flex items-center justify-center gap-2 px-5 py-2.5 rounded-full whitespace-nowrap font-bold text-[11px] tracking-widest transition-colors">
+                        <i class="fa-solid fa-star text-[10px]"></i> PROMO
+                    </button>
+                    <button data-filter="ramen" class="category-btn px-6 py-2.5 rounded-full whitespace-nowrap font-bold text-[11px] tracking-widest transition-colors">
+                        RAMEN
+                    </button>
+                    <button data-filter="dry-ramen" class="category-btn px-6 py-2.5 rounded-full whitespace-nowrap font-bold text-[11px] tracking-widest transition-colors">
+                        DRY RAMEN
+                    </button>
+                </div>
+            </div>
+
+            <div id="menu-sections">
+            <div id="section-promo" class="mb-3 mt-2 menu-section-label scroll-mt-[92px]" data-section="promo">
+                <h3 class="font-extrabold text-[13px] text-[#8c8c8c] tracking-widest uppercase mb-3">Promo</h3>
+            </div>
+
+            <div class="menu-card relative bg-[#f6f3ed] rounded-[24px] p-5 shadow-[0_8px_30px_rgb(0,0,0,0.03)] mb-8 pb-6" data-cat="promo ramen">
+                
+                <div class="absolute -top-12 -right-2 w-[118px] h-[118px] rounded-full border-[4px] border-[#fbf8f4] overflow-hidden shadow-xl z-10 bg-white">
+                    <img src="https://images.unsplash.com/photo-1557872943-16a5ac26437e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Tonkotsu Ramen" class="w-full h-full object-cover">
+                </div>
+
+                <div class="pt-[14px]">
+                    <div class="flex items-center gap-2 mb-3 pr-[100px]">
+                        <span class="bg-[#8b6545] text-white text-[9px] font-bold px-2 py-0.5 rounded-[4px] tracking-wider">BESTSELLER</span>
+                        <span class="text-[#940a16] text-[11px] flex gap-0.5">
+                            <i class="fa-solid fa-fire"></i>
+                            <i class="fa-solid fa-fire"></i>
+                        </span>
+                    </div>
+
+                    <h3 class="text-[26px] font-medium text-[#1e1e1e] mb-2 tracking-tight pr-[92px]">Tonkotsu Ramen</h3>
+                    <p class="text-[#6b6b6b] text-[14px] leading-snug mb-8 pr-4 font-light">
+                        Rich 18-hour creamy pork bone broth, tender chashu, and signature handmade...
+                    </p>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#940a16] font-medium text-[20px] tracking-tight">Rp 88.000</span>
+                        <a href="detailpage.html?id=tonkotsu-ramen" class="bg-[#ac171e] text-white font-medium px-5 py-2.5 rounded-xl text-[14.5px] flex items-center gap-1.5 shadow-[0_4px_15px_rgba(172,23,30,0.3)] hover:bg-[#940a16] transition-colors">
+                            <i class="fa-solid fa-plus text-xs"></i> Tambah
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="menu-card relative bg-[#f6f3ed] rounded-[24px] p-5 shadow-[0_8px_30px_rgb(0,0,0,0.03)] mb-8 pb-6" data-cat="promo dry-ramen">
+
+                <div class="absolute -top-12 -right-2 w-[118px] h-[118px] rounded-full border-[4px] border-[#fbf8f4] overflow-hidden shadow-xl z-10 bg-white">
+                    <img src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Spicy Garlic Mazesoba" class="w-full h-full object-cover">
+                </div>
+
+                <div class="pt-[14px]">
+                    <div class="flex items-center gap-2 mb-3 pr-[100px]">
+                        <span class="bg-[#8b6545] text-white text-[9px] font-bold px-2 py-0.5 rounded-[4px] tracking-wider">PROMO</span>
+                        <span class="text-[#940a16] text-[11px] flex gap-0.5">
+                            <i class="fa-solid fa-fire"></i><i class="fa-solid fa-fire"></i><i class="fa-solid fa-fire"></i>
+                        </span>
+                    </div>
+
+                    <h3 class="text-[22px] font-medium text-[#1e1e1e] mb-2 tracking-tight pr-[92px] leading-tight">Spicy Garlic Mazesoba</h3>
+                    <p class="text-[#6b6b6b] text-[14px] leading-snug mb-8 pr-4 font-light">
+                        Dry noodles tossed in fiery garlic chili oil, topped with minced pork...
+                    </p>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#940a16] font-medium text-[20px] tracking-tight">Rp 80.000</span>
+                        <a href="detailpage.html?id=spicy-garlic-mazesoba" class="bg-[#ac171e] text-white font-medium px-5 py-2.5 rounded-xl text-[14.5px] flex items-center gap-1.5 shadow-[0_4px_15px_rgba(172,23,30,0.3)] hover:bg-[#940a16] transition-colors">
+                            <i class="fa-solid fa-plus text-xs"></i> Tambah
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <div id="section-ramen" class="mb-3 mt-4 menu-section-label scroll-mt-[92px]" data-section="ramen">
+                <h3 class="font-extrabold text-[13px] text-[#8c8c8c] tracking-widest uppercase mb-3">Ramen</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-4" id="ramen-grid">
+
+                <div class="menu-card bg-[#efece6] rounded-[18px] p-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)] border border-[#f0ede6] flex flex-col" data-cat="ramen">
+                    <img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Shoyu Ramen" class="w-full h-[100px] object-cover rounded-[12px] mb-2.5">
+                    <h4 class="font-bold text-[14px] text-[#1a1a1a] leading-tight mb-1">Shoyu Ramen</h4>
+                    <p class="text-[#8c8c8c] text-[11px] leading-snug mb-3 flex-1">Kaldu ayam gurih dengan soy sauce tare klasik.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#940a16] font-bold text-[13.5px]">Rp 78.000</span>
+                        <a href="detailpage.html?id=shoyu-ramen" class="bg-[#ac171e] text-white w-7 h-7 rounded-full flex items-center justify-center shadow-md hover:bg-[#940a16] transition-colors">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="menu-card bg-[#efece6] rounded-[18px] p-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)] border border-[#f0ede6] flex flex-col" data-cat="ramen promo">
+                    <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Miso Ramen" class="w-full h-[100px] object-cover rounded-[12px] mb-2.5">
+                    <h4 class="font-bold text-[14px] text-[#1a1a1a] leading-tight mb-1">Miso Ramen</h4>
+                    <p class="text-[#8c8c8c] text-[11px] leading-snug mb-3 flex-1">Kaldu miso gurih dengan taburan jagung manis.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#940a16] font-bold text-[13.5px]">Rp 82.000</span>
+                        <a href="detailpage.html?id=miso-ramen" class="bg-[#ac171e] text-white w-7 h-7 rounded-full flex items-center justify-center shadow-md hover:bg-[#940a16] transition-colors">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="section-dry-ramen" class="mb-3 mt-4 menu-section-label scroll-mt-[92px]" data-section="dry-ramen">
+                <h3 class="font-extrabold text-[13px] text-[#8c8c8c] tracking-widest uppercase mb-3">Dry Ramen</h3>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-8" id="dryramen-grid">
+
+                <div class="menu-card bg-[#efece6] rounded-[18px] p-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)] border border-[#f0ede6] flex flex-col" data-cat="dry-ramen">
+                    <img src="https://images.unsplash.com/photo-1623341214825-9f4f963727da?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Original Mazemen" class="w-full h-[100px] object-cover rounded-[12px] mb-2.5">
+                    <h4 class="font-bold text-[14px] text-[#1a1a1a] leading-tight mb-1">Original Mazemen</h4>
+                    <p class="text-[#8c8c8c] text-[11px] leading-snug mb-3 flex-1">Mie tanpa kuah dengan saus tare gurih & minyak bawang.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#940a16] font-bold text-[13.5px]">Rp 75.000</span>
+                        <a href="detailpage.html?id=original-mazemen" class="bg-[#ac171e] text-white w-7 h-7 rounded-full flex items-center justify-center shadow-md hover:bg-[#940a16] transition-colors">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="menu-card bg-[#efece6] rounded-[18px] p-3 shadow-[0_4px_15px_rgba(0,0,0,0.03)] border border-[#f0ede6] flex flex-col" data-cat="dry-ramen">
+                    <img src="https://images.unsplash.com/photo-1584278860047-22db9ff82bed?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Karaage Mazesoba" class="w-full h-[100px] object-cover rounded-[12px] mb-2.5">
+                    <h4 class="font-bold text-[14px] text-[#1a1a1a] leading-tight mb-1">Karaage Mazesoba</h4>
+                    <p class="text-[#8c8c8c] text-[11px] leading-snug mb-3 flex-1">Mie kering dengan topping ayam goreng crispy.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-[#940a16] font-bold text-[13.5px]">Rp 85.000</span>
+                        <a href="detailpage.html?id=karaage-mazesoba" class="bg-[#ac171e] text-white w-7 h-7 rounded-full flex items-center justify-center shadow-md hover:bg-[#940a16] transition-colors">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="no-results" class="hidden text-center text-[#8c8c8c] text-[13px] font-medium py-10">Belum ada menu di kategori ini.</p>
+        </div>
+
+        <!-- Cart bar: default hidden, dimunculkan lewat JS kalau keranjang ada isinya -->
+        <div id="cart-bar" class="hidden fixed bottom-0 w-full max-w-[414px] bg-gradient-to-t from-[#fbf8f4] via-[#fbf8f4] to-transparent pt-12 pb-6 px-6 z-50">
+            <a href="checkoutpage.html" class="w-full bg-[#1a1a1a] text-white rounded-2xl py-3.5 px-4 flex justify-between items-center shadow-[0_8px_25px_rgba(0,0,0,0.25)] border border-gray-800 transition-transform active:scale-[0.98]">
+                
+                <div class="flex items-center gap-3.5 min-w-0">
+                    <div id="cart-badge" class="bg-[#c21820] text-white rounded-lg w-[34px] h-[34px] flex items-center justify-center font-extrabold text-[15px] shadow-inner flex-shrink-0">
+                        1
+                    </div>
+                    <div class="text-left min-w-0">
+                        <span id="cart-label" class="block font-bold text-[14px] leading-tight tracking-wide truncate">Tonkotsu Ramen</span>
+                        <span class="block text-[11px] text-gray-400 font-medium mt-0.5">Lihat detail pesanan</span>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 text-[#f6f4f0] flex-shrink-0">
+                    <span class="font-bold text-[13px] tracking-wide">Checkout</span>
+                    <div class="bg-white/10 w-7 h-7 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // ==== Navbar kategori: klik = scroll ke section terkait ====
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            const sections = {
+                promo: document.getElementById('section-promo'),
+                ramen: document.getElementById('section-ramen'),
+                'dry-ramen': document.getElementById('section-dry-ramen')
+            };
+
+            function setActiveBtn(filter) {
+                categoryBtns.forEach(b => b.classList.toggle('active-cat', b.dataset.filter === filter));
+            }
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.dataset.filter;
+                    setActiveBtn(filter);
+
+                    if (filter === 'all') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+
+                    const target = sections[filter];
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Scroll-spy sederhana: highlight tombol kategori sesuai section yang lagi kelihatan
+            window.addEventListener('scroll', () => {
+                let current = 'all';
+                let closestDist = Infinity;
+
+                Object.entries(sections).forEach(([key, el]) => {
+                    if (!el) return;
+                    const dist = el.getBoundingClientRect().top;
+                    if (dist <= 100 && Math.abs(dist) < closestDist) {
+                        closestDist = Math.abs(dist);
+                        current = key;
+                    }
+                });
+
+                if (window.scrollY < 40) current = 'all';
+                setActiveBtn(current);
+            }, { passive: true });
+
+            // ==== Cart bar ====
+            const cart = getCart();
+            const bar = document.getElementById('cart-bar');
+
+            if (cart.length === 0) {
+                // Keranjang kosong, sembunyikan bar sepenuhnya
+                bar.classList.add('hidden');
+                return;
+            }
+
+            bar.classList.remove('hidden');
+
+            const totalQty = getCartTotalQty();
+            document.getElementById('cart-badge').innerText = totalQty;
+
+            const firstName = cart[0].name;
+            const otherDistinctCount = cart.length - 1;
+            const label = otherDistinctCount > 0
+                ? `${firstName} +${otherDistinctCount} lainnya`
+                : firstName;
+
+            document.getElementById('cart-label').innerText = label;
+        });
+    </script>
+</body>
+</html>
